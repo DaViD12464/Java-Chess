@@ -1,5 +1,10 @@
 public class Szachownica
 {
+    public Szachownica()
+    {
+        rysujSzachownice();
+    }
+
     public void rysujSzachownice()
         {
             System.out.print(" _ _ _ _ _ _ _ _\n");

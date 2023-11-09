@@ -1,6 +1,10 @@
 public class Hetman extends Figura
 {
-    public char znak = 'Q';
+    public Hetman()
+    {
+        this.znak = 'Q';
+    }
+
     public void ruch()
     {
         System.out.println("ruszam się");
