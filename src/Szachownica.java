@@ -13,7 +13,7 @@ public class Szachownica
             {
                 for (int j=0; j<8; j++)
                 {
-                    System.out.print("|_");
+                    System.out.print("■");
                     if (j==7)
                     {
                         System.out.print("|");
@@ -22,6 +22,15 @@ public class Szachownica
                 System.out.println();
             }
         }
+//         _ _ _ _ _ _ _ _
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
+//        |_|_|_|_|_|_|_|_|
         public void rozstawFiguryGracza1()
         {
             Wieza wieza1 = new Wieza();
