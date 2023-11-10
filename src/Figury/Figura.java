@@ -1,3 +1,5 @@
+package Figury;
+
 abstract class Figura
 {
     public char znak;

@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Hetman extends Figura
 {
     public Hetman()
@@ -7,7 +11,7 @@ public class Hetman extends Figura
 
     public void ruch()
     {
-        System.out.println("ruszam się - Hetman");
+        System.out.println("ruszam się - Figury.Hetman");
     }
 
     @Override

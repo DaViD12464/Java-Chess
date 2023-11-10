@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Pion extends Figura
 {
     public Pion()
@@ -7,7 +11,7 @@ public class Pion extends Figura
 
     public void ruch()
     {
-        System.out.println("ruszam się - Pion");
+        System.out.println("ruszam się - Figury.Pion");
     }
 
     @Override

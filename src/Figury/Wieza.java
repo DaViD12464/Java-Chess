@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Wieza extends Figura
 {
 

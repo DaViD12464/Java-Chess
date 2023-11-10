@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Krol extends Figura
 {
     public Krol()

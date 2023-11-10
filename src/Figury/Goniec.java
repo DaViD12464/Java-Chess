@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Goniec extends Figura
 {
     public Goniec()
@@ -7,7 +11,7 @@ public class Goniec extends Figura
 
     public void ruch()
     {
-        System.out.println("ruszam się - Goniec");
+        System.out.println("ruszam się - Figury.Goniec");
     }
 
     @Override

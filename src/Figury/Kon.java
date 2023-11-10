@@ -1,3 +1,7 @@
+package Figury;
+
+import Figury.Figura;
+
 public class Kon extends Figura
 {
     public Kon()
