@@ -22,4 +22,15 @@ public class Szachownica
                 System.out.println();
             }
         }
+        public void rozstawFiguryGracza1()
+        {
+            Wieza wieza1 = new Wieza();
+            Wieza wieza2 = new Wieza();
+            Goniec goniec1 = new Goniec();
+            Goniec goniec2 = new Goniec();
+            Kon kon1 = new Kon();
+            Kon kon2 = new Kon();
+            Hetman hetman = new Hetman();
+            Krol krol = new Krol();
+        }
 }
