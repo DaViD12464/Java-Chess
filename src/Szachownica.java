@@ -1,50 +1,29 @@
-import Figury.*;
-public class Szachownica
-{
-    boolean pionyRozstawione = false;
+import java.util.List;
+
+public class Szachownica {
+    int x = 1;
+    int y = 1;
 
     public Szachownica()
     {
-        rysujSzachownice();
+        printSzachownica();
     }
 
-    int[] notacja = {1, 2, 3, 4, 5, 6, 7, 8};
-    int z = 8;
-    public void rysujSzachownice()
-        {
-            System.out.print("A B C D E F G H\n");
-            for (int i=0; i<8; i++)
-            {
-                pionyRozstawione = false;
-                if (i == 1 || i == 6)
-                {
-                    rozstawFiguryGracza1();
-                    pionyRozstawione = true;
-                    z--;
-                    System.out.print(notacja[z]);
+    char[][] szachownica = new char[8][8];
+    char[] notacja = {'8', '7', '6', '5', '4', '3', '2', '1'};
+
+
+    public void printSzachownica() {
+        System.out.print("A B C D E F G H\n");
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                szachownica[i][j] = (i + j) % 2 == 0 ? '■' : '□';
+                if (j == 7) {
+                    System.out.print(notacja[i]);
                 }
-                if (!pionyRozstawione) {
-                    for (int j = 0; j < 8; j++) {
-                        if ((i + j) % 2 == 0) {
-                            System.out.print("■ ");
-                        } else {
-                            System.out.print("□ ");
-                        }
-                        if (j == 7) {
-                            z--;
-                            System.out.print(notacja[z]);
-                        }
-                    }
-                }
-                System.out.println();
             }
-            System.out.println("A B C D E F G H");
+            System.out.println();
         }
-        public void rozstawFiguryGracza1()
-        {
-            for (int i = 0; i < 8; i++) {
-                Pion pionek = new Pion();
-                System.out.print(pionek.getZnak()+" ");
-            }
-        }
+        System.out.println("A B C D E F G H");
+    }
 }
