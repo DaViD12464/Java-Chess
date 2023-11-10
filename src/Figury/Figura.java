@@ -2,7 +2,7 @@ package Figury;
 
 public abstract class Figura
 {
-    public char znak;
+    public String znak;
 
     public abstract void ruch();
     public static void dodajDoPliku()
@@ -10,7 +10,7 @@ public abstract class Figura
         System.out.println("dodaje do pliku");
     }
 
-    public char getZnak() {
+    public String getZnak() {
         return znak;
     }
 

@@ -8,7 +8,7 @@ public class Krol extends Figura
     public int y;
     public Krol(int x, int y)
     {
-        this.znak = 'K';
+        this.znak = " K ";
         this.x = x;
         this.y = y;
     }
@@ -19,7 +19,7 @@ public class Krol extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 

@@ -8,7 +8,7 @@ public class Hetman extends Figura
     public int y;
     public Hetman(int x, int y)
     {
-        this.znak = 'Q';
+        this.znak = " Q ";
         this.x = x;
         this.y = y;
     }
@@ -19,7 +19,7 @@ public class Hetman extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 }

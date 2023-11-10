@@ -9,7 +9,7 @@ public class Wieza extends Figura
 
     public Wieza(int x, int y)
     {
-        this.znak = 'R';
+        this.znak = " R ";
         this.x = x;
         this.y = y;
     }
@@ -20,7 +20,7 @@ public class Wieza extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 }

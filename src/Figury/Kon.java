@@ -8,7 +8,7 @@ public class Kon extends Figura
     public int y;
     public Kon(int x, int y)
     {
-        this.znak = 'N';
+        this.znak = " N ";
         this.x = x;
         this.y = y;
     }
@@ -19,7 +19,7 @@ public class Kon extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 }

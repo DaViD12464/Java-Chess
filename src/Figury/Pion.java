@@ -9,7 +9,7 @@ public class Pion extends Figura
 
     public Pion(int x, int y)
     {
-        this.znak = 'O';
+        this.znak = " O ";
         this.x = x;
         this.y = y;
     }
@@ -20,7 +20,7 @@ public class Pion extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 

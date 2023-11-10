@@ -2,7 +2,7 @@ import Figury.*;
 
 public abstract class Rozstawienie
 {
-    public static void rozstawFigury(char[][] szachownica)
+    public static void rozstawFigury(String[][] szachownica)
     {
 
         szachownica[0][0] = new Wieza(0, 0).getZnak();

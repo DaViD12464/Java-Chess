@@ -6,7 +6,7 @@ public class Goniec extends Figura
     public int y;
     public Goniec(int x, int y)
     {
-        this.znak = 'B';
+        this.znak = " B ";
         this.x = x;
         this.y = y;
     }
@@ -17,7 +17,7 @@ public class Goniec extends Figura
     }
 
     @Override
-    public char getZnak() {
+    public String getZnak() {
         return this.znak;
     }
 }
