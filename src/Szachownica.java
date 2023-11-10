@@ -5,10 +5,10 @@ public class Szachownica
         rysujSzachownice();
     }
 
+    int[] notacja = {1, 2, 3, 4, 5, 6, 7, 8};
+    int z = 8;
     public void rysujSzachownice()
         {
-            System.out.print(" _ _ _ _ _ _ _ _\n");
-
             for (int i=0; i<8; i++)
             {
                 for (int j=0; j<8; j++)
@@ -16,11 +16,13 @@ public class Szachownica
                     System.out.print("■ ");
                     if (j==7)
                     {
-                        System.out.print("|");
+                        z--;
+                        System.out.print(notacja[z]);
                     }
                 }
                 System.out.println();
             }
+            System.out.println("A B C D E F G H");
         }
 //         _ _ _ _ _ _ _ _
 //        |_|_|_|_|_|_|_|_|
