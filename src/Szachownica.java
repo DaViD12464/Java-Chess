@@ -1,5 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Szachownica
 {
+    int x=1;
+    int y=1;
+    List<Integer> wspolrzedne;
     boolean pionyRozstawione = false;
 
     public Szachownica()
@@ -13,16 +19,12 @@ public class Szachownica
         {
             for (int i=0; i<8; i++)
             {
-                pionyRozstawione = false;
-                if (i == 1 || i == 6)
-                {
-                    rozstawFiguryGracza1();
-                    pionyRozstawione = true;
-                    z--;
-                    System.out.print(notacja[z]);
-                }
-                if (!pionyRozstawione) {
-                    for (int j = 0; j < 8; j++) {
+
+                    for (int j = 0; j < 8; j++)
+                    {
+                        List<Integer> wspolrzedne = new ArrayList<Integer>();
+                        wspolrzedne.add(i+1);
+                        wspolrzedne.add(j+1);
                         if ((i + j) % 2 == 0) {
                             System.out.print("■ ");
                         } else {
@@ -32,13 +34,14 @@ public class Szachownica
                             z--;
                             System.out.print(notacja[z]);
                         }
+                        //System.out.println("|"+wspolrzedne.get(0)+"=x "+wspolrzedne.get(1)+"=y|");
                     }
-                }
+
                 System.out.println();
             }
             System.out.println("A B C D E F G H");
         }
-        public void rozstawFiguryGracza1()
+        public void rozstawFiguryGraczy()
         {
             for (int i = 0; i < 8; i++) {
                 Pion pionek = new Pion();
