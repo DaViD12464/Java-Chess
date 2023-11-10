@@ -1,6 +1,6 @@
 package Figury;
 
-abstract class Figura
+public abstract class Figura
 {
     public char znak;
 

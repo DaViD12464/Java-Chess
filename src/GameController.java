@@ -12,42 +12,20 @@ public class GameController{
 //        Players gracze = new Players();
     }
 
-
-    public static void stworzObiektyFigur()
+    public static void rozstawFigury(char[][] szachownica)
     {
 
-        Goniec goniecBialy1 = new Goniec(0,1);
-        Goniec goniecBialy2 = new Goniec(0,5);
-        Goniec goniecCzarny1 = new Goniec(8,1);
-        Goniec goniecCzarny2 = new Goniec(8,5);
+        szachownica[0][0] = new Wieza(0, 0).getZnak();
+        szachownica[0][1] = new Kon(0, 2).getZnak();
+        szachownica[0][2] = new Goniec(0, 1).getZnak();
+        szachownica[0][3] = new Hetman(0, 3).getZnak();
+        szachownica[0][4] = new Krol(0, 4).getZnak();
+        szachownica[0][5] = new Goniec(0, 5).getZnak();
+        szachownica[0][6] = new Kon(0, 6).getZnak();
+        szachownica[0][7] = new Wieza(0, 7).getZnak();
 
-        Kon konBialy1 = new Kon(0,1);
-        Kon konBialy2 = new Kon(0,7);
-        Kon konCzarny1 = new Kon(8,2);
-        Kon konCzarny2 = new Kon(8,7);
-
-        Hetman hetmanBialy = new Hetman(0, 3);
-        Hetman hetmanCzarny = new Hetman(8, 3);
-
-        Krol krolBialy = new Krol(0,4);
-        Krol krolCzarny = new Krol(8,4);
-
-        Pion pionBialy1 = new Pion();
-        Pion pionBialy2 = new Pion();
-        Pion pionBialy3 = new Pion();
-        Pion pionBialy4 = new Pion();
-        Pion pionBialy5 = new Pion();
-        Pion pionBialy6 = new Pion();
-        Pion pionBialy7 = new Pion();
-        Pion pionBialy8 = new Pion();
-
-        Pion pionCzarny1 = new Pion();
-        Pion pionCzarny2 = new Pion();
-        Pion pionCzarny3 = new Pion();
-        Pion pionCzarny4 = new Pion();
-        Pion pionCzarny5 = new Pion();
-        Pion pionCzarny6 = new Pion();
-        Pion pionCzarny7 = new Pion();
-        Pion pionCzarny8 = new Pion();
+        for (int j = 0; j < 8; j++) {
+            szachownica[1][j] = new Pion(1, j).getZnak();
+        }
     }
 }

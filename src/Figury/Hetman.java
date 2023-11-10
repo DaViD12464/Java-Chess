@@ -8,14 +8,14 @@ public class Hetman extends Figura
     public int y;
     public Hetman(int x, int y)
     {
-        this.znak = 'q';
+        this.znak = 'Q';
         this.x = x;
         this.y = y;
     }
 
     public void ruch()
     {
-        System.out.println("ruszam się - Figury.Hetman");
+        System.out.println("ruszam się - Hetman");
     }
 
     @Override
