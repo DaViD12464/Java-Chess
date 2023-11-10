@@ -1,3 +1,4 @@
+import Figury.*;
 public class Szachownica
 {
     boolean pionyRozstawione = false;
