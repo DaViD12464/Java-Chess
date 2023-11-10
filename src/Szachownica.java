@@ -13,7 +13,11 @@ public class Szachownica
             {
                 for (int j=0; j<8; j++)
                 {
-                    System.out.print("■ ");
+                    if ((i + j) % 2 == 0) {
+                        System.out.print("■ ");
+                    } else {
+                        System.out.print("□ ");
+                    }
                     if (j==7)
                     {
                         z--;
