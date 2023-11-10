@@ -7,6 +7,12 @@ public class Krol extends Figura
 
     public void ruch()
     {
-        System.out.println("ruszam się");
+        System.out.println("ruszam się - Król");
     }
+
+    @Override
+    public char getZnak() {
+        return this.znak;
+    }
+
 }
