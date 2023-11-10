@@ -1,3 +1,6 @@
+import Figury.*;
+import Figury.Wieza;
+
 import java.util.List;
 
 public class Szachownica {
@@ -28,4 +31,6 @@ public class Szachownica {
         }
         System.out.println("A B C D E F G H");
     }
+
+
 }

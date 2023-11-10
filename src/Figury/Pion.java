@@ -4,6 +4,8 @@ import Figury.Figura;
 
 public class Pion extends Figura
 {
+    public int x;
+    public int y;
 
     public Pion()
     {

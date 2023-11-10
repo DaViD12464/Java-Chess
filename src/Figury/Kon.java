@@ -4,9 +4,13 @@ import Figury.Figura;
 
 public class Kon extends Figura
 {
-    public Kon()
+    public int x;
+    public int y;
+    public Kon(int x, int y)
     {
         this.znak = 'N';
+        this.x = x;
+        this.y = y;
     }
 
     public void ruch()

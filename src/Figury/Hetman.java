@@ -4,9 +4,13 @@ import Figury.Figura;
 
 public class Hetman extends Figura
 {
-    public Hetman()
+    public int x;
+    public int y;
+    public Hetman(int x, int y)
     {
-        this.znak = 'Q';
+        this.znak = 'q';
+        this.x = x;
+        this.y = y;
     }
 
     public void ruch()
