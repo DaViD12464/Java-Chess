@@ -12,6 +12,8 @@ public class GameController{
         whiteplayer = Players.add_players("Podaj imię gracza białymi figurami:"); //pobranie gracza białych figur
         blackplayer = Players.add_players("Podaj imię gracza czarnymi figurami:"); //pobranie gracza czarnych figur
 
+        PlayerTurn playerTurn = new PlayerTurn();
+        playerTurn.playerturn(whiteplayer, blackplayer);
 
     }
 }

@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class Szachownica {
     int x = 1;
     int y = 1;
