@@ -18,8 +18,10 @@ public class Szachownica {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 szachownica[i][j] = (i + j) % 2 == 0 ? '■' : '□';
+                System.out.print(szachownica[i][j] + " ");
                 if (j == 7) {
                     System.out.print(notacja[i]);
+
                 }
             }
             System.out.println();
