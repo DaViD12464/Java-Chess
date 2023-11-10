@@ -13,7 +13,7 @@ public class Szachownica
             {
                 for (int j=0; j<8; j++)
                 {
-                    System.out.print("■");
+                    System.out.print("■ ");
                     if (j==7)
                     {
                         System.out.print("|");
