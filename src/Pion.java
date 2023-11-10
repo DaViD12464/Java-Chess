@@ -1,5 +1,6 @@
 public class Pion extends Figura
 {
+
     public Pion()
     {
         this.znak = 'o';
@@ -14,4 +15,5 @@ public class Pion extends Figura
     public char getZnak() {
         return this.znak;
     }
+
 }
