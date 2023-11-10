@@ -1,12 +1,14 @@
 package Figury;
 
-import Figury.Figura;
-
 public class Goniec extends Figura
 {
-    public Goniec()
+    public int x;
+    public int y;
+    public Goniec(int x, int y)
     {
         this.znak = 'B';
+        this.x = x;
+        this.y = y;
     }
 
     public void ruch()

@@ -1,3 +1,4 @@
+
 public class Szachownica {
     int x = 1;
     int y = 1;
@@ -18,6 +19,10 @@ public class Szachownica {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
                 szachownica[i][j] = (i + j) % 2 == 0 ? '■' : '□';
+
+                //Tutaj rozstawiuam figury na rzędzie ósmym
+                GameController.rozstawFigury(szachownica);
+
                 System.out.print(szachownica[i][j] + " ");
                 if (j == 7) {
                     System.out.print(notacja[i]);

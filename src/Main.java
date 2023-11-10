@@ -1,9 +1,10 @@
 import java.io.IOException;
+import Figury.*;
 
 public class Main {
         public static void main(String[] args)
                 throws IOException
         {
-        GameController gamecontroller = new GameController();
+                GameController gameController = new GameController();
         }
 }
