@@ -14,8 +14,10 @@ public class Szachownica {
 
 
     public void printSzachownica() {
-        System.out.print("A B C D E F G H\n");
+        System.out.print("--------------------\n");
+        System.out.print("  A B C D E F G H\n");
         for (int i = 0; i < 8; i++) {
+            System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
                 szachownica[i][j] = (i + j) % 2 == 0 ? '■' : '□';
                 System.out.print(szachownica[i][j] + " ");
@@ -26,6 +28,7 @@ public class Szachownica {
             }
             System.out.println();
         }
-        System.out.println("A B C D E F G H");
+        System.out.println("  A B C D E F G H");
+        System.out.print("--------------------\n");
     }
 }
