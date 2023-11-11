@@ -1,6 +1,5 @@
 package Figury;
 
-import Figury.Figura;
 
 public class Krol extends Figura
 {
@@ -8,7 +7,10 @@ public class Krol extends Figura
     public int y;
     public Krol(int x, int y)
     {
-        this.znak = 'K';
+        if ((x + y)%2==0)
+        {
+            this.znak = 'K';
+        }
         this.x = x;
         this.y = y;
     }

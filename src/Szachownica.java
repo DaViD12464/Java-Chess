@@ -9,7 +9,7 @@ public class Szachownica {
     }
 
     char[][] szachownica = new char[8][8];
-    char[] notacja = {'8', '7', '6', '5', '4', '3', '2', '1'};
+    char[] notacja = {'1', '2', '3', '4', '5', '6', '7', '8'};
 
     public char[][] getSzachownica()
     {
@@ -19,7 +19,7 @@ public class Szachownica {
     public void printSzachownica() {
         System.out.print("--------------------\n");
         System.out.print("  A B C D E F G H\n");
-        for (int i = 0; i < 8; i++) {
+        for (int i = 7; i >=0; i--) {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
                 szachownica[i][j] = (i + j) % 2 == 0 ? '■' : '□';
@@ -37,7 +37,7 @@ public class Szachownica {
     public void wyswietl() {
         System.out.print("--------------------\n");
         System.out.print("  A B C D E F G H\n");
-        for (int i = 0; i < 8; i++) {
+        for (int i = 7; i >=0; i--) {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
                 System.out.print(szachownica[i][j] + " ");
