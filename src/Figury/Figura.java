@@ -10,7 +10,7 @@ public abstract class Figura
         System.out.println("dodaje do pliku");
     }
 
-    public String getZnak() {
+    public String getZnak(String[][] szachownica) {
         return znak;
     }
 

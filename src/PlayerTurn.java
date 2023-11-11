@@ -18,7 +18,7 @@ public class  PlayerTurn
     {
         if(whiteplayerturn)
         {
-            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.WHITE_BOLD +whiteplayer +", twoja tura!"+Kolory.RESET);
+            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.WHITE_BOLD_BRIGHT +whiteplayer +", twoja tura!"+Kolory.RESET);
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
             String ruch = scanner.nextLine();

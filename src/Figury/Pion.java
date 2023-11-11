@@ -6,12 +6,22 @@ public class Pion extends Figura
 {
     public int x;
     public int y;
+    public String kolor;
 
-    public Pion(int x, int y)
+    public String oznaczenie;
+
+    public Pion(int x, int y, String kolor)
     {
-        this.znak = " O ";
         this.x = x;
         this.y = y;
+        if(kolor.equals("bialy"))
+        {
+            this.znak =(KoloryFigur.WHITE_BOLD_BRIGHT + " O ") ;
+        }
+        if(kolor.equals("czarny"))
+        {
+            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " O ") ;
+        }
     }
 
     public void ruch()
@@ -20,8 +30,17 @@ public class Pion extends Figura
     }
 
     @Override
-    public String getZnak() {
-        return this.znak;
+    public String getZnak(String[][] szachownica) {
+        if(szachownica[x][y].contains(" ■ "))
+        {
+            oznaczenie = (KoloryFigur.WHITE_BACKGROUND + this.znak + KoloryFigur.RESET );
+        }
+        if(szachownica[x][y].contains(" □ "))
+        {
+            oznaczenie = (KoloryFigur.BLACK_BACKGROUND + this.znak + KoloryFigur.RESET );
+        }
+
+        return oznaczenie;
     }
 
 }
