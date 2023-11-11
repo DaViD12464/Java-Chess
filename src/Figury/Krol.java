@@ -12,7 +12,6 @@ public class Krol extends Figura
 
     public Krol(int x, int y, String kolor)
     {
-        this.znak = 'K';
         this.x = x;
         this.y = y;
         if(kolor.equals("bialy"))

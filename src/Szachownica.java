@@ -37,7 +37,7 @@ public class Szachownica {
     public void wyswietl() {
         System.out.print("------------------------------\n");
         System.out.print("   A  B  C  D  E  F  G  H\n");
-        for (int i = 7; i > 0; i--) {
+        for (int i = 7; i >= 0; i--) {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
                 System.out.print(szachownica[i][j]);
