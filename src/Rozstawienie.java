@@ -28,7 +28,7 @@ public abstract class Rozstawienie
         szachownica[7][6] = new Kon(7, 6).getZnak();
         szachownica[7][7] = new Wieza(7, 7).getZnak();
         for (int j = 0; j < 8; j++) {
-            szachownica[1][j] = new Pion(1, j).getZnak();
+            szachownica[6][j] = new Pion(1, j).getZnak();
         }
     }
 }

@@ -1,6 +1,7 @@
 package Figury;
 
 import Figury.Figura;
+import Kolory;
 
 public class Hetman extends Figura
 {
@@ -8,7 +9,11 @@ public class Hetman extends Figura
     public int y;
     public Hetman(int x, int y)
     {
-        this.znak = " Q ";
+        if(this.znak.contains(" ■ "))
+        {
+            this.znak = (Kolory.WHITE_BACKGROUND + " Q " + Kolory.RESET ); //dlaczego nie widzi klasy kolory?
+        }
+// dodac ifa dla przeciwnego koloru
         this.x = x;
         this.y = y;
     }

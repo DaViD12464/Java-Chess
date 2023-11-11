@@ -22,7 +22,7 @@ public class Szachownica {
         for (int i = 0; i < 8; i++) {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
-                szachownica[i][j] = (i + j) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+" ■ " + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" □ "+ Kolory.RESET);
+                szachownica[i][j] = (i + j) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ " ■ " + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" □ "+ Kolory.RESET);
                 System.out.print(szachownica[i][j]);
                 if (j == 7) {
                     System.out.print(" " + notacja[i]);
