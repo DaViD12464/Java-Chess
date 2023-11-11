@@ -6,7 +6,6 @@ public class Kon extends Figura
 {
     public int x;
     public int y;
-    public String kolor;
 
     public String oznaczenie;
 
@@ -20,7 +19,7 @@ public class Kon extends Figura
         }
         if(kolor.equals("czarny"))
         {
-            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " N ") ;
+            this.znak =(KoloryFigur.RED_BOLD + " N ") ;
         }
     }
 
@@ -31,11 +30,11 @@ public class Kon extends Figura
 
     @Override
     public String getZnak(String[][] szachownica) {
-        if(szachownica[x][y].contains(" ■ "))
+        if(szachownica[x][y].contains("_ _"))
         {
             oznaczenie = (KoloryFigur.WHITE_BACKGROUND + this.znak + KoloryFigur.RESET );
         }
-        if(szachownica[x][y].contains(" □ "))
+        if(szachownica[x][y].contains(" _ "))
         {
             oznaczenie = (KoloryFigur.BLACK_BACKGROUND + this.znak + KoloryFigur.RESET );
         }

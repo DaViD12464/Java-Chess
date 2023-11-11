@@ -6,8 +6,6 @@ public class Hetman extends Figura
 {
     public int x;
     public int y;
-    public String kolor;
-
     public String oznaczenie;
 
     public Hetman(int x, int y, String kolor)
@@ -16,11 +14,11 @@ public class Hetman extends Figura
         this.y = y;
         if(kolor.equals("bialy"))
         {
-            this.znak =(KoloryFigur.WHITE_BOLD_BRIGHT + " Q ") ;
+            this.znak =(KoloryFigur.WHITE_BOLD_BRIGHT+ " Q ") ;
         }
         if(kolor.equals("czarny"))
         {
-            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " Q ") ;
+            this.znak =(KoloryFigur.RED_BOLD + " Q ") ;
         }
     }
 
@@ -31,11 +29,11 @@ public class Hetman extends Figura
 
     @Override
     public String getZnak(String[][] szachownica) {
-        if(szachownica[x][y].contains(" ■ "))
+        if(szachownica[x][y].contains("_ _"))
         {
             oznaczenie = (KoloryFigur.WHITE_BACKGROUND + this.znak + KoloryFigur.RESET );
         }
-        if(szachownica[x][y].contains(" □ "))
+        if(szachownica[x][y].contains(" _ "))
         {
             oznaczenie = (KoloryFigur.BLACK_BACKGROUND + this.znak + KoloryFigur.RESET );
         }

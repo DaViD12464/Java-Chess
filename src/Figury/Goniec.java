@@ -4,7 +4,6 @@ public class Goniec extends Figura
 {
     public int x;
     public int y;
-    public String kolor;
 
     public String oznaczenie;
 
@@ -18,7 +17,7 @@ public class Goniec extends Figura
         }
         if(kolor.equals("czarny"))
         {
-            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " B ") ;
+            this.znak =(KoloryFigur.RED_BOLD + " B ") ;
         }
     }
 
@@ -29,11 +28,11 @@ public class Goniec extends Figura
 
     @Override
     public String getZnak(String[][] szachownica) {
-        if(szachownica[x][y].contains(" ■ "))
+        if(szachownica[x][y].contains("_ _"))
         {
            oznaczenie = (KoloryFigur.WHITE_BACKGROUND + this.znak + KoloryFigur.RESET );
         }
-        if(szachownica[x][y].contains(" □ "))
+        if(szachownica[x][y].contains(" _ "))
         {
             oznaczenie = (KoloryFigur.BLACK_BACKGROUND + this.znak + KoloryFigur.RESET );
         }
