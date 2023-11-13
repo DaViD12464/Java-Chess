@@ -22,26 +22,30 @@ public class  PlayerTurn
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            if( metodaporuszania.ruch(input))
+            if( metodaporuszania.ruch(input.toUpperCase(), szachownica))
             {
                 whiteplayerturn = false;
                 blackplayerturn = true;
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
+            else next_turn(whiteplayerturn, blackplayerturn, szachownica);
         }
 
         if(blackplayerturn)
         {
             System.out.println(Kolory.BLACK_BACKGROUND + Kolory.RED_BOLD +blackplayer +", twoja tura!"+Kolory.RESET);
+
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            if(metodaporuszania.ruch(input))
+            if(metodaporuszania.ruch(input.toUpperCase(), szachownica))
             {
                 whiteplayerturn = true;
                 blackplayerturn = false;
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
+            else next_turn(whiteplayerturn, blackplayerturn, szachownica);
+
         }
     }
 }

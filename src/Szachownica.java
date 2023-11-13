@@ -50,4 +50,6 @@ public class Szachownica {
         System.out.println("   A  B  C  D  E  F  G  H");
         System.out.print("------------------------------\n");
     }
+
+
 }
