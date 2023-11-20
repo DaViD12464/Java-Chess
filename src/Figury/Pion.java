@@ -16,11 +16,11 @@ public class Pion extends Figura
         this.y = y;
         if(kolor.equals("bialy"))
         {
-            this.znak =(KoloryFigur.WHITE_BOLD_BRIGHT + " O ") ;
+            this.znak =(KoloryFigur.WHITE_BOLD_BRIGHT + " ♟ ") ;
         }
         if(kolor.equals("czarny"))
         {
-            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " O ") ;
+            this.znak =(KoloryFigur.RED_BOLD_BRIGHT + " ♟ ") ;
         }
     }
 

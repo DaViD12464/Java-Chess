@@ -1,7 +1,6 @@
+import java.util.Scanner;
 
 public class Szachownica {
-    int x = 1;
-    int y = 1;
 
     public Szachownica()
     {
@@ -49,5 +48,11 @@ public class Szachownica {
         }
         System.out.println("   A  B  C  D  E  F  G  H");
         System.out.print("------------------------------\n");
+    }
+
+
+    private int convertFileToIndex(char file) {
+        // Convert the file character (e.g., 'a', 'b', 'c') to the corresponding array index
+        return file - 'a';
     }
 }
