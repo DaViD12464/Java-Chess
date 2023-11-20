@@ -9,6 +9,8 @@ public class Krol extends Figura
 
     public String oznaczenie;
 
+    public Boolean czywykonalruch = false;
+
     public Krol(int x, int y, String kolor)
     {
         this.x = x;

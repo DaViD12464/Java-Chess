@@ -3,6 +3,7 @@ import java.util.Arrays;
 
 public abstract class metodaporuszania {
 
+
     public static boolean ruch(String input, Szachownica szachownica)
     {
         if(input.equalsIgnoreCase("O-O"))
@@ -18,17 +19,15 @@ public abstract class metodaporuszania {
         else {
             String[] zdekodowanyRuch = dekoderRuchow(input);
 
-            if (zdekodowanyRuch.length==3 && (zdekodowanyRuch[1].charAt(0) >= '1' && zdekodowanyRuch[1].charAt(0) <= '8') && (zdekodowanyRuch[2].charAt(0) >= '1' && zdekodowanyRuch[2].charAt(0) <= '8')) {
-                if(zdekodowanyRuch[0].equals("P"))
-                {
-                    // trzeba zrobić przypisanie wartosci od [A-H] do liczb ktorymi bedzie mozna operowac na pozycjonowaniu na szachownicy os X
-                    //oraz przypisanie liczb [1-8] do pozycjonowania po osi Y
-                    //potem przypisac wartosc wg zdekodowanej tablicy - wybrac odpowiedni pionek oraz przypisac mu nowa pozycje (stara zastapic polem defaultowym dla pol bialych/czarnych)
+            if (zdekodowanyRuch.length==3 && (zdekodowanyRuch[1].charAt(0) >= '0' && zdekodowanyRuch[1].charAt(0) <= '7') && (zdekodowanyRuch[2].charAt(0) >= '0' && zdekodowanyRuch[2].charAt(0) <= '7')) {
+                if(zdekodowanyRuch[0].equals(" O "))
+                {   szachownica.starePole(zdekodowanyRuch[0],1,(Integer.parseInt(zdekodowanyRuch[1]))); // przypisanie do 1 moze powodowac nieprawidlowosc co do wykonywanego ruchu kolorami
+                    szachownica.ustawPole(zdekodowanyRuch[0],(Integer.parseInt(zdekodowanyRuch[2]))-1,Integer.parseInt(zdekodowanyRuch[1]));
                     return true;
                 }
 
             } else {
-                System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT + "To nie jest prawidłowy ruch w notacji szachowej!" + Kolory.RESET);
+                InvalidMove();
             }
             return false;
         }
@@ -50,10 +49,10 @@ public abstract class metodaporuszania {
         }
         if(input.length()==2)
         {
-            for (int i = 1; i <= 2; i++) {
-                zdekodowanyRuch[0] = "P";
-                zdekodowanyRuch[i] = String.valueOf(input.charAt(i-1));
-            }
+                zdekodowanyRuch[0] = " O ";
+                zdekodowanyRuch[1] = String.valueOf(input.charAt(0));
+                zdekodowanyRuch[2] = String.valueOf(input.charAt(1));
+
             System.out.println("Dekodowany ruch (len.2): " + Arrays.toString(zdekodowanyRuch)); //do sprawdzenia dekodowania - potem usunac
 
         }
@@ -61,17 +60,18 @@ public abstract class metodaporuszania {
         for (var element : notacjapionowa)
         {
             if(element.equals(zdekodowanyRuch[1]))
-            {   System.out.println("przed" +zdekodowanyRuch[1]); // usunac pokazuje dekodowana litere alfabetu
-                zdekodowanyRuch[1] = String.valueOf(element.charAt(0)+1 - 'A');
-
-                System.out.println("po"+zdekodowanyRuch[1]); // usunac pokazuje wynik dekodowanej litery w zakresie A=0-H=7
+            {   System.out.println("przed " +zdekodowanyRuch[1]); // usunac pokazuje dekodowana litere alfabetu
+                zdekodowanyRuch[1] = String.valueOf(element.charAt(0) - 'A');
+                System.out.println("po "+zdekodowanyRuch[1]); // usunac pokazuje wynik dekodowanej litery w zakresie A=0-H=7
             }
-
-
         }
-        
+
         return zdekodowanyRuch;
     }
 
+    public static void InvalidMove()
+    {
+        System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT + "To nie jest prawidłowy ruch w notacji szachowej!" + Kolory.RESET);
+    }
 
 }
