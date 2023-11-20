@@ -21,7 +21,7 @@ public class Szachownica {
         for (int i = 7; i >= 0; i--) {
             System.out.print(notacja[i] + " ");
             for (int j = 0; j < 8; j++) {
-                szachownica[i][j] = (i + j) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ " ■ " + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" □ "+ Kolory.RESET);
+                szachownica[i][j] = (i + j) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ "_ _" + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" _ "+ Kolory.RESET);
                 System.out.print(szachownica[i][j]);
                 if (j == 7) {
                     System.out.print(" " + notacja[i]);
@@ -50,9 +50,32 @@ public class Szachownica {
         System.out.print("------------------------------\n");
     }
 
+<<<<<<< HEAD
 
     private int convertFileToIndex(char file) {
         // Convert the file character (e.g., 'a', 'b', 'c') to the corresponding array index
         return file - 'a';
+=======
+    public void ustawPole(String figura, int x, int y)
+    {
+        if (x >= 0 && x <= 7 && y >= 0 && y <= 7)
+        {
+            szachownica[x][y] = (x + y) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ figura + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+ figura + Kolory.RESET);
+        } else
+        {
+            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT +"Błąd: Próba ustawienia figury poza zakresem planszy."+Kolory.RESET);
+        }
+    }
+
+    public void starePole(String figura, int x, int y)
+    {
+        if (x >= 0 && x <= 7 && y >= 0 && y <= 7)
+        {
+            szachownica[x][y] = (x + y) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ "_ _" + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" _ "+ Kolory.RESET);
+        } else
+        {
+            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT +"Błąd: Próba ustawienia figury poza zakresem planszy."+Kolory.RESET);
+        }
+>>>>>>> 3d82ada9e74b123d28d33998a1834f8ac0f5641d
     }
 }

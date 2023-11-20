@@ -21,31 +21,31 @@ public class  PlayerTurn
             System.out.println(Kolory.BLACK_BACKGROUND + Kolory.WHITE_BOLD_BRIGHT +whiteplayer +", twoja tura!"+Kolory.RESET);
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
-            String ruch = scanner.nextLine();
-            //dodac metode obslugujaca poruszanie figurami)
-            //if(/*metodaporuszania*/ == true)
-            if(ruch != null)    //tymczasowe do czasu wprowadzenia ruchow
+            String input = scanner.nextLine();
+            if( metodaporuszania.ruch(input.toUpperCase(), szachownica))
             {
                 whiteplayerturn = false;
                 blackplayerturn = true;
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
+            else next_turn(whiteplayerturn, blackplayerturn, szachownica);
         }
 
         if(blackplayerturn)
         {
             System.out.println(Kolory.BLACK_BACKGROUND + Kolory.RED_BOLD +blackplayer +", twoja tura!"+Kolory.RESET);
+
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
-            String ruch = scanner.nextLine();
-            //dodac metode obslugujaca poruszanie figurami - do ktorej przekazemy wartosc ruch
-            //if(/*metodaporuszania*/ == true)
-            if(ruch != null)    //tymczasowe do czasu wprowadzenia ruchow
+            String input = scanner.nextLine();
+            if(metodaporuszania.ruch(input.toUpperCase(), szachownica))
             {
                 whiteplayerturn = true;
                 blackplayerturn = false;
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
+            else next_turn(whiteplayerturn, blackplayerturn, szachownica);
+
         }
     }
 }
