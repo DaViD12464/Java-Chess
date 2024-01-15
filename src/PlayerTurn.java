@@ -4,6 +4,7 @@ public class  PlayerTurn
 {
     private String whiteplayer;
     private String blackplayer;
+    String kolejka = "bialy";
 
     public void playerturn(String whiteplayer, String blackplayer, Szachownica szachownica)
     {
@@ -11,6 +12,7 @@ public class  PlayerTurn
         this.blackplayer = blackplayer;
         Boolean whiteplayerturn = true;
         Boolean blackplayerturn = false;
+
         next_turn(whiteplayerturn,blackplayerturn, szachownica);
     }
 
@@ -22,10 +24,11 @@ public class  PlayerTurn
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            if( metodaporuszania.ruch(input.toUpperCase(), szachownica))
+            if( metodaporuszania.ruch(input.toUpperCase(), szachownica, kolejka))
             {
                 whiteplayerturn = false;
                 blackplayerturn = true;
+                kolejka = "czarny";
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
             else next_turn(whiteplayerturn, blackplayerturn, szachownica);
@@ -38,10 +41,11 @@ public class  PlayerTurn
             szachownica.wyswietl();
             Scanner scanner = new Scanner(System.in);
             String input = scanner.nextLine();
-            if(metodaporuszania.ruch(input.toUpperCase(), szachownica))
+            if(metodaporuszania.ruch(input.toUpperCase(), szachownica, kolejka))
             {
                 whiteplayerturn = true;
                 blackplayerturn = false;
+                String kolejka = "bialy";
                 next_turn(whiteplayerturn, blackplayerturn, szachownica);
             }
             else next_turn(whiteplayerturn, blackplayerturn, szachownica);

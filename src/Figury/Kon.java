@@ -9,7 +9,7 @@ public class Kon extends Figura
 
     public String oznaczenie;
 
-    public Kon(int x, int y, String kolor)
+    public Kon(int x, int y, String kolor, String nazwa)
     {
         this.x = x;
         this.y = y;
@@ -23,7 +23,7 @@ public class Kon extends Figura
         }
     }
 
-    public void ruch()
+    public static void ruch()
     {
         System.out.println("ruszam się - Koń");
     }

@@ -1,10 +1,12 @@
+import Figury.*;
+
 import java.util.Arrays;
 
 
 public abstract class metodaporuszania {
 
 
-    public static boolean ruch(String input, Szachownica szachownica)
+    public static boolean ruch(String input, Szachownica szachownica, String kolej)
     {
         if(input.equalsIgnoreCase("O-O"))
         {
@@ -20,10 +22,37 @@ public abstract class metodaporuszania {
             String[] zdekodowanyRuch = dekoderRuchow(input);
 
             if (zdekodowanyRuch.length==3 && (zdekodowanyRuch[1].charAt(0) >= '0' && zdekodowanyRuch[1].charAt(0) <= '7') && (zdekodowanyRuch[2].charAt(0) >= '0' && zdekodowanyRuch[2].charAt(0) <= '7')) {
-                if(zdekodowanyRuch[0].equals(" O "))
-                {   szachownica.starePole(zdekodowanyRuch[0],1,(Integer.parseInt(zdekodowanyRuch[1]))); // przypisanie do 1 moze powodowac nieprawidlowosc co do wykonywanego ruchu kolorami
-                    szachownica.ustawPole(zdekodowanyRuch[0],(Integer.parseInt(zdekodowanyRuch[2]))-1,Integer.parseInt(zdekodowanyRuch[1]));
-                    return true;
+                String figura = zdekodowanyRuch[0];
+                switch (figura)
+                {
+                    case " O ":
+                    {
+                        String name = "Pion" + zdekodowanyRuch[1];
+                        // if czy bicie czy ruch
+                        Pion.ruch(Integer.parseInt(zdekodowanyRuch[1]), Integer.parseInt(zdekodowanyRuch[2]), name);
+                        // Pion.bicie
+                    }
+                    case " R ":
+                    {
+                        Wieza.ruch();
+                    }
+                    case " N ":
+                    {
+                        Kon.ruch();
+                    }
+                    case " B ":
+                    {
+                        Goniec.ruch();
+                    }
+                    case " Q ":
+                    {
+                        Hetman.ruch();
+                    }
+                    case " K ":
+                    {
+                        Krol.ruch();
+                    }
+
                 }
 
             } else {
