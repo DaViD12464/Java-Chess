@@ -1,7 +1,6 @@
+import java.util.Scanner;
 
 public class Szachownica {
-    int x = 1;
-    int y = 1;
 
     public Szachownica()
     {
@@ -49,5 +48,32 @@ public class Szachownica {
         }
         System.out.println("   A  B  C  D  E  F  G  H");
         System.out.print("------------------------------\n");
+    }
+
+    private int convertFileToIndex(char file) {
+        // Convert the file character (e.g., 'a', 'b', 'c') to the corresponding array index
+        return file - 'a';
+
+    public void ustawPole(String figura, int x, int y)
+    {
+        if (x >= 0 && x <= 7 && y >= 0 && y <= 7)
+        {
+            szachownica[x][y] = (x + y) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ figura + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+ figura + Kolory.RESET);
+        } else
+        {
+            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT +"Błąd: Próba ustawienia figury poza zakresem planszy."+Kolory.RESET);
+        }
+    }
+
+    public void starePole(String figura, int x, int y)
+    {
+        if (x >= 0 && x <= 7 && y >= 0 && y <= 7)
+        {
+            szachownica[x][y] = (x + y) % 2 == 0 ? (Kolory.WHITE_BACKGROUND+ "_ _" + Kolory.RESET) : (Kolory.BLACK_BACKGROUND+" _ "+ Kolory.RESET);
+        } else
+        {
+            System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT +"Błąd: Próba ustawienia figury poza zakresem planszy."+Kolory.RESET);
+        }
+
     }
 }
