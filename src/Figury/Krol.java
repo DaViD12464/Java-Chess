@@ -11,7 +11,7 @@ public class Krol extends Figura
 
     public Boolean czywykonalruch = false;
 
-    public Krol(int x, int y, String kolor)
+    public Krol(int x, int y, String kolor, String nazwa)
     {
         this.x = x;
         this.y = y;
@@ -29,7 +29,7 @@ public class Krol extends Figura
         }
     }
 
-    public void ruch()
+    public static void ruch()
     {
         System.out.println("ruszam się - Król");
     }

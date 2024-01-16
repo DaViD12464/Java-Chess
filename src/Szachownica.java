@@ -50,12 +50,10 @@ public class Szachownica {
         System.out.print("------------------------------\n");
     }
 
-<<<<<<< HEAD
-
     private int convertFileToIndex(char file) {
         // Convert the file character (e.g., 'a', 'b', 'c') to the corresponding array index
         return file - 'a';
-=======
+
     public void ustawPole(String figura, int x, int y)
     {
         if (x >= 0 && x <= 7 && y >= 0 && y <= 7)
@@ -76,6 +74,6 @@ public class Szachownica {
         {
             System.out.println(Kolory.BLACK_BACKGROUND + Kolory.YELLOW_BOLD_BRIGHT +"Błąd: Próba ustawienia figury poza zakresem planszy."+Kolory.RESET);
         }
->>>>>>> 3d82ada9e74b123d28d33998a1834f8ac0f5641d
+
     }
 }

@@ -7,7 +7,7 @@ public class Goniec extends Figura
 
     public String oznaczenie;
 
-    public Goniec(int x, int y, String kolor)
+    public Goniec(int x, int y, String kolor, String nazwa)
     {
         this.x = x;
         this.y = y;
@@ -25,7 +25,7 @@ public class Goniec extends Figura
         }
     }
 
-    public void ruch()
+    public static void ruch()
     {
         System.out.println("ruszam się - Figury.Goniec");
     }

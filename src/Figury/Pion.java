@@ -9,7 +9,7 @@ public class Pion extends Figura
 
     public String oznaczenie;
 
-    public Pion(int x, int y, String kolor)
+    public Pion(int x, int y, String kolor, String nazwa)
     {
         this.x = x;
         this.y = y;
@@ -27,11 +27,20 @@ public class Pion extends Figura
         }
     }
 
-    public void ruch()
-    {
-        System.out.println("ruszam się - Pion");
+
+    public static void ruch(int Nx, int Ny, String nazwa)
+    { //1. odczyt szachownicy - pozyskanie pol
+        // Szachownica.GetPositions() -- zwrocic pozycje wszystkich figur na planszy
+        //2. sprawdzanie dostepnosci ruchu dla danej figury
+        //3. aktualizacja szachownicy / invalid move
+       // Szachownica.PrzesunFigure()
+
     }
 
+    public static void bicie(int Nx, int Ny, String nazwa)
+    {
+
+    }
     @Override
     public String getZnak(String[][] szachownica) {
         if(szachownica[x][y].contains("_ _"))
@@ -42,6 +51,7 @@ public class Pion extends Figura
         {
             oznaczenie = (KoloryFigur.BLACK_BACKGROUND + this.znak + KoloryFigur.RESET );
         }
+
 
         return oznaczenie;
     }

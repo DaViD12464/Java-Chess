@@ -7,9 +7,10 @@ public class Wieza extends Figura
     public int x;
     public int y;
     public String oznaczenie;
+    public String nazwa;
 
 
-    public Wieza(int x, int y, String kolor)
+    public Wieza(int x, int y, String kolor, String nazwa)
     {
         this.x = x;
         this.y = y;
@@ -27,7 +28,7 @@ public class Wieza extends Figura
         }
     }
 
-    public void ruch()
+    public static void ruch()
     {
         System.out.println("ruszam się - Wieża");
     }
