@@ -28,7 +28,7 @@ public class Hetman extends Figura {
 
     @Override
     public String toString() {
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
             return "Q";
         }
         return "Q";

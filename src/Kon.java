@@ -21,7 +21,7 @@ public class Kon extends Figura {
 
     @Override
     public String toString() {
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
             return "N";
         }
         return "N";

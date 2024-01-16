@@ -17,38 +17,37 @@ public class Game {
                 Board.printBoard();
                 // check for check
                 if (turns % 2 == 0) {
-                    color = Color.WHITE;
+                    color = Color.BIALY;
                 } else
-                    color = Color.BLACK;
+                    color = Color.CZARNY;
 
-                if (Board.staleMate(color) == true) {
-                    System.out.println("game over, stalemate");
+                if (Board.staleMate(color)) {
+                    System.out.println("Gra skończona, szachmat");
                     break;
                 }
-                if (Board.checkForCheck(color) == true) {
-                    if (Board.mate(color) == true) {
+                if (Board.checkForCheck(color)) {
+                    if (Board.mate(color)) {
 
-                        System.out.printf("Checkmate, %s wins \n", color == Color.WHITE ? "Black" : "White");
+                        System.out.printf("Szachmat, %s wygrywa! \n", color == Color.BIALY ? "Czarny" : "Bialy");
                         break;
                     }
-                    System.out.printf("%s is in Check! \n", color == Color.WHITE ? "White" : "Black");
+                    System.out.printf("%s został zaszachowany! \n", color == Color.BIALY ? "Bialy" : "Czarny");
                 }
 
                 // move choice
-                System.out.printf("%s's turn \n", color == Color.WHITE ? "White" : "Black");
+                System.out.printf("%s twoja tura! \n", color == Color.BIALY ? "Bialy" : "Czarny");
 
                 String move = moveChoice.nextLine();
                 // process move
                 if (Board.processMove(move, color) == 0) {
                     turns++;
                 } else {
-                    System.out.println("illegal move");
+                    System.out.println("Niedozwolony ruch.");
                 }
 
             }
-            System.out.println("would you like to play again? y/n");
-            if (moveChoice.next().equals("y")) {
-                continue;
+            System.out.println("Czy chcesz zagrać jeszcze raz T/N");
+            if (moveChoice.next().equals("T")) {continue;
             } else
                 System.exit(0);
         }

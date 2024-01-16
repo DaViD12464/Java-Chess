@@ -27,27 +27,27 @@ public class Krol extends Figura {
 
     @Override
     public String toString() {
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
             return "K";
         }
         return "K";
     }
 
-    public int castle(String side) {
+    public int roszada(String side) {
         Wieza rook = (Wieza) Board.getPiece("rook" + side, this.getColor());
         int originX = this.getX();
         int originY = this.getY();
 
         if (this.isFirstMove != true || rook.isFirstMove != true) {
-            System.out.println("Cannot castle if king or rook has already moved");
+            System.out.println("Nie można wykonać roszady, jeśli król lub wieża wykonał/a ruch.");
             return -1;
         }
         if (Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true) {
-            System.out.println("Cannot castle across a line of check");
+            System.out.println("Nie można wykonać roszady po linii szachu.");
             return -1;
         }
 
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
 
             if (side.equals("K")) {
                 // cant castle accross a line of check
@@ -75,7 +75,7 @@ public class Krol extends Figura {
             }
         }
 
-        if (this.getColor() == Color.BLACK) {
+        if (this.getColor() == Color.CZARNY) {
             if (side.equals("K")) {
                 if (this.move(5, 0, null) == 0 && this.move(6, 0, null) == 0) {
                     Board.setPiece(rook.getX(), rook.getY(), null);

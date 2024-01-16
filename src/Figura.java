@@ -14,10 +14,10 @@ public abstract class Figura {
         this.x = startX;
         this.y = startY;
 
-        if (this.getColor() == Color.WHITE) {
-            Board.white.add(this);
-        } else if (this.getColor() == Color.BLACK) {
-            Board.black.add(this);
+        if (this.getColor() == Color.BIALY) {
+            Board.BIALY.add(this);
+        } else if (this.getColor() == Color.CZARNY) {
+            Board.CZARNY.add(this);
         }
         Board.setPiece(x, y, this);
     }
@@ -68,10 +68,10 @@ public abstract class Figura {
         int originX = this.getX();
         int originY = this.getY();
 
-        if (this.getColor() == Color.WHITE) {
-            Board.black.remove(other);
+        if (this.getColor() == Color.BIALY) {
+            Board.CZARNY.remove(other);
         } else {
-            Board.white.remove(other);
+            Board.BIALY.remove(other);
         }
 
         Board.setPiece(originX, originY, null);
@@ -82,10 +82,10 @@ public abstract class Figura {
 
         if (Board.checkForCheck(color) == true) {
             if (other != null) {
-                if (this.getColor() == Color.WHITE) {
-                    Board.black.add(other);
+                if (this.getColor() == Color.BIALY) {
+                    Board.CZARNY.add(other);
                 } else {
-                    Board.white.add(other);
+                    Board.BIALY.add(other);
                 }
             }
             Board.setPiece(originX, originY, this);
@@ -97,15 +97,15 @@ public abstract class Figura {
 
         if (this instanceof Pion) {
             char file = this.getID().charAt(4);
-            if (this.getColor() == Color.WHITE && y == 0) {
+            if (this.getColor() == Color.BIALY && y == 0) {
                 Board.setPiece(x, y, null);
-                Board.white.remove(this);
-                Hetman yasQueen = new Hetman(Color.WHITE, "queen" + file, x, y);
+                Board.BIALY.remove(this);
+                Hetman yasQueen = new Hetman(Color.BIALY, "queen" + file, x, y);
                 System.out.println("Pion promoted!");
-            } else if (this.getColor() == Color.BLACK && y == 7) {
+            } else if (this.getColor() == Color.CZARNY && y == 7) {
                 Board.setPiece(x, y, null);
-                Board.black.remove(this);
-                Hetman yasQueen = new Hetman(Color.BLACK, "queen" + file, x, y);
+                Board.CZARNY.remove(this);
+                Hetman yasQueen = new Hetman(Color.CZARNY, "queen" + file, x, y);
                 System.out.println("Pion promoted!");
             }
         }
@@ -128,10 +128,10 @@ public abstract class Figura {
                 Board.setPiece(originX, originY, this);
                 isFirstMove = isFirst;
                 if (other != null) {
-                    if (other.getColor() == Color.WHITE) {
-                        Board.white.add(other);
+                    if (other.getColor() == Color.BIALY) {
+                        Board.BIALY.add(other);
                     } else
-                        Board.black.add(other);
+                        Board.CZARNY.add(other);
                 }
                 return true;
             }

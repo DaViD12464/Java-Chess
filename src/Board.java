@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 
 public class Board {
-    public static ArrayList<Figura> black = new ArrayList<Figura>();
-    public static ArrayList<Figura> white = new ArrayList<Figura>();
+    public static ArrayList<Figura> CZARNY = new ArrayList<Figura>();
+    public static ArrayList<Figura> BIALY = new ArrayList<Figura>();
 
     static Figura board[][] = new Figura[8][8];
 
@@ -32,52 +32,55 @@ public class Board {
     }
 
     static void startGame() {
-        System.out.println("How to play:");
-        System.out.println("For pawns, type in \"pawn\" followed by the file letter. For example, \"pawnA\"");
-        System.out.println("For bishops, knights and rooks, put \"Q\" or \"K\" to specify Hetman's or King's side");
-        System.out.println("provide a space and then enter a valid tile. For example, \"bishopK c4\"");
+        System.out.println("  ---------------------------------");
+        System.out.println("Jak grać:");
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("Ruch pionkiem: Wpisz \"pion\" a po nim oznaczenie kolumny. \nDla przykładu: \"pionA a3\"");
+        System.out.println("Dla gońców, koni i wież wpisz: \"Q\" lub \"K\" aby określić czy poruszasz się figurą po stronie królowej czy króla.");
+        System.out.println("Następnie wpisz spację i pole na które chcesz się udać. \nDla przykładu: \"goniecK c4\"");
         System.out.println(
-                "Pawns auto-promote to queens. The new queens are referenced by what the pawns file was. \"queenH\"");
+                "Pionki są automatycznie zastępowane przez królowe. Nowe królowe mają przypisywaną kolumnę od pionka. \nDla przykładu: \"krolowaH\"");
         System.out.println(
-                "To castle, type castle, followed by a space and then a capital K or Q to specify a side. \"castle Q\"\n");
+                "Aby wykonać roszadę wpisz \"roszada\", następnie spację i \"Q\" lub \"K\" aby wybrać stronę w którą ma się wykonać roszada. \nDla przykładu: \"roszada Q\"");
+        System.out.println("------------------------------------------------------------------");
 
-        // black
-        new Wieza(Color.BLACK, "rookQ", 0, 0);
-        new Kon(Color.BLACK, "knightQ", 1, 0);
-        new Goniec(Color.BLACK, "bishopQ", 2, 0);
-        new Hetman(Color.BLACK, "queen", 3, 0);
-        new Krol(Color.BLACK, "king", 4, 0);
-        new Goniec(Color.BLACK, "bishopK", 5, 0);
-        new Kon(Color.BLACK, "knightK", 6, 0);
-        new Wieza(Color.BLACK, "rookK", 7, 0);
+        // CZARNY
+        new Wieza(Color.CZARNY, "wiezaQ", 0, 0);
+        new Kon(Color.CZARNY, "konQ", 1, 0);
+        new Goniec(Color.CZARNY, "goniecQ", 2, 0);
+        new Hetman(Color.CZARNY, "krolowa", 3, 0);
+        new Krol(Color.CZARNY, "krol", 4, 0);
+        new Goniec(Color.CZARNY, "goniecK", 5, 0);
+        new Kon(Color.CZARNY, "konK", 6, 0);
+        new Wieza(Color.CZARNY, "wiezaK", 7, 0);
 
-        new Pion(Color.BLACK, "pawnA", 0, 1);
-        new Pion(Color.BLACK, "pawnB", 1, 1);
-        new Pion(Color.BLACK, "pawnC", 2, 1);
-        new Pion(Color.BLACK, "pawnD", 3, 1);
-        new Pion(Color.BLACK, "pawnE", 4, 1);
-        new Pion(Color.BLACK, "pawnF", 5, 1);
-        new Pion(Color.BLACK, "pawnG", 6, 1);
-        new Pion(Color.BLACK, "pawnH", 7, 1);
+        new Pion(Color.CZARNY, "pionA", 0, 1);
+        new Pion(Color.CZARNY, "pionB", 1, 1);
+        new Pion(Color.CZARNY, "pionC", 2, 1);
+        new Pion(Color.CZARNY, "pionD", 3, 1);
+        new Pion(Color.CZARNY, "pionE", 4, 1);
+        new Pion(Color.CZARNY, "pionF", 5, 1);
+        new Pion(Color.CZARNY, "pionG", 6, 1);
+        new Pion(Color.CZARNY, "pionH", 7, 1);
 
-        // white
-        new Wieza(Color.WHITE, "rookQ", 0, 7);
-        new Kon(Color.WHITE, "knightQ", 1, 7);
-        new Goniec(Color.WHITE, "bishopQ", 2, 7);
-        new Hetman(Color.WHITE, "queen", 3, 7);
-        new Krol(Color.WHITE, "king", 4, 7);
-        new Goniec(Color.WHITE, "bishopK", 5, 7);
-        new Kon(Color.WHITE, "knightK", 6, 7);
-        new Wieza(Color.WHITE, "rookK", 7, 7);
+        // BIALY
+        new Wieza(Color.BIALY, "wiezaQ", 0, 7);
+        new Kon(Color.BIALY, "konQ", 1, 7);
+        new Goniec(Color.BIALY, "goniecQ", 2, 7);
+        new Hetman(Color.BIALY, "krolowa", 3, 7);
+        new Krol(Color.BIALY, "krol", 4, 7);
+        new Goniec(Color.BIALY, "goniecK", 5, 7);
+        new Kon(Color.BIALY, "konK", 6, 7);
+        new Wieza(Color.BIALY, "wiezaK", 7, 7);
 
-        new Pion(Color.WHITE, "pawnA", 0, 6);
-        new Pion(Color.WHITE, "pawnB", 1, 6);
-        new Pion(Color.WHITE, "pawnC", 2, 6);
-        new Pion(Color.WHITE, "pawnD", 3, 6);
-        new Pion(Color.WHITE, "pawnE", 4, 6);
-        new Pion(Color.WHITE, "pawnF", 5, 6);
-        new Pion(Color.WHITE, "pawnG", 6, 6);
-        new Pion(Color.WHITE, "pawnH", 7, 6);
+        new Pion(Color.BIALY, "pionA", 0, 6);
+        new Pion(Color.BIALY, "pionB", 1, 6);
+        new Pion(Color.BIALY, "pionC", 2, 6);
+        new Pion(Color.BIALY, "pionD", 3, 6);
+        new Pion(Color.BIALY, "pionE", 4, 6);
+        new Pion(Color.BIALY, "pionF", 5, 6);
+        new Pion(Color.BIALY, "pionG", 6, 6);
+        new Pion(Color.BIALY, "pionH", 7, 6);
     }
 
     // set piece to provided coordinates
@@ -97,20 +100,20 @@ public class Board {
     // match String piece from user with Piece on board
     public static Figura getPiece(String piece, Color color) {
 
-        if (color == Color.WHITE) {
+        if (color == Color.BIALY) {
 
-            for (int i = 0; i < white.size(); i++) {
-                Figura p = white.get(i);
+            for (int i = 0; i < BIALY.size(); i++) {
+                Figura p = BIALY.get(i);
                 if (p.matchID(piece)) {
                     return p;
                 }
             }
         }
 
-        else if (color == Color.BLACK) {
+        else if (color == Color.CZARNY) {
 
-            for (int i = 0; i < black.size(); i++) {
-                Figura p = black.get(i);
+            for (int i = 0; i < CZARNY.size(); i++) {
+                Figura p = CZARNY.get(i);
                 if (p.matchID(piece)) {
                     return p;
                 }
@@ -165,21 +168,21 @@ public class Board {
         String[] splitStr = move.split(" ");
         String piece = splitStr[0];
 
-        if (piece.equals("castle")) {
-            Krol king = (Krol) getPiece("king", color);
-            return king.castle(splitStr[1]);
+        if (piece.equals("roszada")) {
+            Krol king = (Krol) getPiece("krol", color);
+            return king.roszada(splitStr[1]);
         }
 
         // piece selected to move
         Figura p = getPiece(piece, color);
         if (p == null) {
-            System.out.println("invalid piece, please type in piece to move it.");
+            System.out.println("nieprawidłowa figura, proszę wprowadzić figurę.");
             return -1;
         }
 
         String coordinates = splitStr[1];
         if (coordinates.length() != 2) {
-            System.out.println("Invalid Tile please try again");
+            System.out.println("Nieprawidłowe pole, proszę spróbować jeszcze raz.");
             return -1;
         }
 
@@ -187,7 +190,7 @@ public class Board {
         int rank = 7 - (coordinates.charAt(1) - '1'); // x
 
         if (rank < 0 || rank > 7 || file < 0 || file > 7) {
-            System.out.println("Invalid Tile please try again");
+            System.out.println("Nieprawidłowe pole, proszę spróbować jeszcze raz.");
             return -1;
         }
 
@@ -200,20 +203,20 @@ public class Board {
 
     public static boolean checkForCheck(Color color) {
 
-        Figura king = getPiece("king", color);
+        Figura king = getPiece("krol", color);
 
-        if (color == Color.WHITE) {
-            for (int i = 0; i < black.size(); i++) {
-                Figura p = black.get(i);
+        if (color == Color.BIALY) {
+            for (int i = 0; i < CZARNY.size(); i++) {
+                Figura p = CZARNY.get(i);
                 if (p.possibleMove(king.getX(), king.getY())) {
                     return true;
                 }
             }
         }
 
-        else if (color == Color.BLACK) {
-            for (int i = 0; i < white.size(); i++) {
-                Figura p = white.get(i);
+        else if (color == Color.CZARNY) {
+            for (int i = 0; i < BIALY.size(); i++) {
+                Figura p = BIALY.get(i);
                 if (p.possibleMove(king.getX(), king.getY())) {
                     return true;
                 }
@@ -225,16 +228,16 @@ public class Board {
 
     public static boolean mate(Color color) {
 
-        if (color == Color.WHITE) {
-            for (int i = 0; i < white.size(); i++) {
-                Figura p = white.get(i);
+        if (color == Color.BIALY) {
+            for (int i = 0; i < BIALY.size(); i++) {
+                Figura p = BIALY.get(i);
                 if (p.canMove()) {
                     return false;
                 }
             }
-        } else if (color == Color.BLACK) {
-            for (int i = 0; i < black.size(); i++) {
-                Figura p = black.get(i);
+        } else if (color == Color.CZARNY) {
+            for (int i = 0; i < CZARNY.size(); i++) {
+                Figura p = CZARNY.get(i);
                 if (p.canMove()) {
                     return false;
                 }
@@ -247,23 +250,23 @@ public class Board {
     public static boolean staleMate(Color color) {
 
         // insufficient material stalemate
-        Figura knightK = getPiece("knightK", color);
-        Figura knightQ = getPiece("knightQ", color);
-        Figura bishopK = getPiece("bishopK", color);
-        Figura bishopQ = getPiece("bishopQ", color);
+        Figura konK = getPiece("konK", color);
+        Figura konQ = getPiece("konQ", color);
+        Figura goniecK = getPiece("goniecK", color);
+        Figura goniecQ = getPiece("goniecQ", color);
 
-        if (white.size() == 2 && black.size() == 2) {
-            if (white.contains(bishopK) || white.contains(bishopQ) || white.contains(knightK)
-                    || white.contains(knightQ)) {
+        if (BIALY.size() == 2 && CZARNY.size() == 2) {
+            if (BIALY.contains(goniecK) || BIALY.contains(goniecQ) || BIALY.contains(konK)
+                    || BIALY.contains(konQ)) {
                 return true;
             }
-            if (black.contains(bishopK) || black.contains(bishopQ) || black.contains(knightK)
-                    || white.contains(knightQ)) {
+            if (CZARNY.contains(goniecK) || CZARNY.contains(goniecQ) || CZARNY.contains(konK)
+                    || BIALY.contains(konQ)) {
                 return true;
             }
 
         }
-        if (white.size() == 1 && white.get(0) instanceof Krol && black.size() == 1 && black.get(0) instanceof Krol) {
+        if (BIALY.size() == 1 && BIALY.get(0) instanceof Krol && CZARNY.size() == 1 && CZARNY.get(0) instanceof Krol) {
             return true;
         }
 

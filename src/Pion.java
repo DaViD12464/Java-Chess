@@ -10,7 +10,7 @@ public class Pion extends Figura {
     public boolean possibleMove(int x, int y) {
         // TODO en passant
 
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
 
             // 2 spaces forward
             if (this.isFirstMove == true && this.getY() - y == 2 && this.getX() - x == 0
@@ -29,7 +29,7 @@ public class Pion extends Figura {
             }
         }
 
-        if (this.getColor() == Color.BLACK) {
+        if (this.getColor() == Color.CZARNY) {
             // 2 spaces forward
             if (this.isFirstMove == true && this.getY() - y == -2 && this.getX() - x == 0
                     && Board.isPathClear(getX(), getY(), x, y) && Board.getPiece(x, y) == null) {
@@ -51,7 +51,7 @@ public class Pion extends Figura {
 
     @Override
     public String toString() {
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.BIALY) {
             return "o";
         }
         return "o";
@@ -62,7 +62,7 @@ public class Pion extends Figura {
         int x = this.getX();
         int y = this.getY();
 
-        if (this.getColor() == Color.WHITE) {
+        if (this.getColor() == Color.CZARNY) {
 
             if (this.testMove(x, y - 1)) {
                 return true;
@@ -81,7 +81,7 @@ public class Pion extends Figura {
             }
 
         }
-        if (this.getColor() == Color.BLACK) {
+        if (this.getColor() == Color.CZARNY) {
 
             if (this.testMove(x, y + 1)) {
                 return true;
