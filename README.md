@@ -3,10 +3,10 @@
 ---------------------------------
 Jak grać:;
 ------------------------------------------------------------------
-Ruch pionkiem: Wpisz "pion" a po nim oznaczenie kolumny. Dla przykładu: "pionA a3"
+**Ruch pionkiem: Wpisz "pion" a po nim oznaczenie kolumny. Dla przykładu: "pionA a3"
 
 Dla gońców, koni i wież wpisz: "Q" lub "K" aby określić czy poruszasz się figurą po stronie królowej czy króla.
-Następnie wpisz spację i pole na które chcesz się udać. Dla przykładu: "goniecK c4"
+Następnie wpisz spację i pole na które chcesz się udać. Dla przykładu: "goniecK c4"**
 
 Pionki są automatycznie zastępowane przez królowe. Nowe królowe mają przypisywaną kolumnę od pionka. Dla przykładu: "krolowaH"
 
