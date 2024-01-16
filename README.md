@@ -1,22 +1,14 @@
 # Java-Chess
 
-Gra w szachy - poruszanie za pomocą notacji szachowej.
+---------------------------------
+Jak grać:;
+------------------------------------------------------------------
+Ruch pionkiem: Wpisz "pion" a po nim oznaczenie kolumny. Dla przykładu: "pionA a3"
 
-!Oznaczenie "_" oznacza pole do wpisania (np. F3, E5, itd.).
+Dla gońców, koni i wież wpisz: "Q" lub "K" aby określić czy poruszasz się figurą po stronie królowej czy króla.
+Następnie wpisz spację i pole na które chcesz się udać. Dla przykładu: "goniecK c4"
 
-Roszada krótka "O-O"
-Roszada długa "O-O-O"
-Ruch wieżą "R_" 
-Ruch koniem "N_"
-Ruch gońcem "B_"
-Ruch królową "Q_"
-Ruch królem "K_"
-Ruchy pionkami odbywają się poprzez podanie pola: "_"
-(np. "F3" - ruch pionkiem w kolumnie F na pole F3)
+Pionki są automatycznie zastępowane przez królowe. Nowe królowe mają przypisywaną kolumnę od pionka. Dla przykładu: "krolowaH"
 
-Bicie oznaczone jest przez x tzn. [figura]x[poledocelowe].
-
-Jeżeli ruch będzie nie możliwy, zostanie wyświetlony komunikat "Ruch niemożliwy".
-
-Szach oznaczenie: "[ruchfigury]+"
-Szachmat oznaczenie: "[ruchfigury]#"
+Aby wykonać roszadę wpisz "roszada", następnie spację i "Q" lub "K" aby wybrać stronę w którą ma się wykonać roszada. Dla przykładu: "roszada Q"
+------------------------------------------------------------------
