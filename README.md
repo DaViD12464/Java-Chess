@@ -1,7 +1,7 @@
 # Java-Chess
 
 ---------------------------------
-Jak grać:;
+Jak grać:
 ------------------------------------------------------------------
 **Ruch pionkiem: Wpisz "pion" a po nim oznaczenie kolumny. Dla przykładu: "pionA a3"
 
