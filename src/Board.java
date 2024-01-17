@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
@@ -8,41 +9,41 @@ public class Board {
     static Figura board[][] = new Figura[8][8];
 
     static void printBoard() {
-        System.out.println("    a   b   c   d   e   f   g   h");
+        System.out.println(Kolory.GOLD+"    a   b   c   d   e   f   g   h"+Kolory.RESET);
 
-        System.out.println("  ---------------------------------");
+        System.out.println(Kolory.GOLD+"  ---------------------------------"+ Kolory.RESET);
         int count = 8;
         for (int i = 0; i < 8; i++) {
-            System.out.print(count + " ");
-            System.out.print("| ");
+            System.out.print(Kolory.GOLD+count + " "+ Kolory.RESET);
+            System.out.print(Kolory.GOLD+"| "+ Kolory.RESET);
             for (int j = 0; j < 8; j++) {
                 if (board[i][j] == null) {
-                    System.out.print("  | ");
+                    System.out.print(Kolory.GOLD+"  | "+ Kolory.RESET);
                 } else {
-                    System.out.print(board[i][j] + " | ");
+                    System.out.print(board[i][j] +Kolory.GOLD+" | "+ Kolory.RESET);
                 }
             }
-            System.out.print(count);
+            System.out.print(Kolory.GOLD+count+ Kolory.RESET);
             count--;
             System.out.println();
-            System.out.println("  ---------------------------------");
+            System.out.println(Kolory.GOLD+"  ---------------------------------"+ Kolory.RESET);
         }
-        System.out.println("    a   b   c   d   e   f   g   h");
+
+        System.out.println(Kolory.GOLD+"    a   b   c   d   e   f   g   h"+ Kolory.RESET);
         System.out.println();
     }
 
     static void startGame() {
-        System.out.println("  ---------------------------------");
+        System.out.println(Kolory.GREEN_BOLD+"  ---------------------------------");
         System.out.println("Jak grać:");
         System.out.println("------------------------------------------------------------------");
         System.out.println("Ruch pionkiem: Wpisz \"pion\" a po nim oznaczenie kolumny. \nDla przykładu: \"pionA a3\"");
         System.out.println("Dla gońców, koni i wież wpisz: \"Q\" lub \"K\" aby określić czy poruszasz się figurą po stronie królowej czy króla.");
         System.out.println("Następnie wpisz spację i pole na które chcesz się udać. \nDla przykładu: \"goniecK c4\"");
-        System.out.println(
-                "Pionki są automatycznie zastępowane przez królowe. Nowe królowe mają przypisywaną kolumnę od pionka. \nDla przykładu: \"krolowaH\"");
-        System.out.println(
-                "Aby wykonać roszadę wpisz \"roszada\", następnie spację i \"Q\" lub \"K\" aby wybrać stronę w którą ma się wykonać roszada. \nDla przykładu: \"roszada Q\"");
-        System.out.println("------------------------------------------------------------------");
+        System.out.println("Pionki są automatycznie zastępowane przez wybrana figure (wyświetli się prośba o podanie jednej z figur [kon,wieza,krolowa,goniec].");
+        System.out.println("Nowe figury mają przypisywaną kolumnę od pionka. \nDla przykładu: \"krolowaH\"");
+        System.out.println("Aby wykonać roszadę wpisz \"roszada\", następnie spację i \"Q\" lub \"K\" aby wybrać stronę w którą ma się wykonać roszada. \nDla przykładu: \"roszada Q\"");
+        System.out.println("------------------------------------------------------------------"+Kolory.RESET);
 
         // CZARNY
         new Wieza(Color.CZARNY, "wiezaQ", 0, 0);
@@ -149,7 +150,7 @@ public class Board {
         } else {
             size = Math.abs(yDistance) - 1;
         }
-        // change on x and y
+        // zmiany na x i y
 
         for (int i = 0; i < size; i++) {
             x1 += xDir;
@@ -170,19 +171,20 @@ public class Board {
 
         if (piece.equals("roszada")) {
             Krol king = (Krol) getPiece("krol", color);
+            assert king != null;
             return king.roszada(splitStr[1]);
         }
 
-        // piece selected to move
+        // figura wybrana do wykonania ruchu
         Figura p = getPiece(piece, color);
         if (p == null) {
-            System.out.println("nieprawidłowa figura, proszę wprowadzić figurę.");
+            System.out.println(Kolory.RED_UNDERLINED+"nieprawidłowa figura, proszę wprowadzić figurę."+Kolory.RESET);
             return -1;
         }
 
         String coordinates = splitStr[1];
         if (coordinates.length() != 2) {
-            System.out.println("Nieprawidłowe pole, proszę spróbować jeszcze raz.");
+            System.out.println(Kolory.RED_UNDERLINED+"Nieprawidłowe pole, proszę spróbować jeszcze raz."+Kolory.RESET);
             return -1;
         }
 
@@ -190,11 +192,11 @@ public class Board {
         int rank = 7 - (coordinates.charAt(1) - '1'); // x
 
         if (rank < 0 || rank > 7 || file < 0 || file > 7) {
-            System.out.println("Nieprawidłowe pole, proszę spróbować jeszcze raz.");
+            System.out.println(Kolory.RED_UNDERLINED+"Nieprawidłowe pole, proszę spróbować jeszcze raz."+Kolory.RESET);
             return -1;
         }
 
-        // piece at destination
+        // figura na miejscu docelowym
         Figura other = getPiece(file, rank);
 
         return p.move(file, rank, other);
@@ -249,7 +251,7 @@ public class Board {
 
     public static boolean staleMate(Color color) {
 
-        // insufficient material stalemate
+        // niewystarczajace matierialy - koniec gry
         Figura konK = getPiece("konK", color);
         Figura konQ = getPiece("konQ", color);
         Figura goniecK = getPiece("goniecK", color);

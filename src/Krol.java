@@ -9,15 +9,15 @@ public class Krol extends Figura {
 
     @Override
     public boolean possibleMove(int x, int y) {
-        // cannot capture own piece
+        // nie mozna zbic wlasnej figury
         if (this.sameColor(Board.getPiece(x, y)) == true) {
             return false;
         }
-        // bishop
+        // przekatne
         else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 1) {
             return true;
         }
-        // rook
+        // gora-dol-lewo-prawo
         else if (Math.abs(getX() - x) == 1 && Math.abs(getY() - y) == 0
                 || Math.abs(getX() - x) == 0 && Math.abs(getY() - y) == 1) {
             return true;
@@ -28,29 +28,29 @@ public class Krol extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "K";
+            return Kolory.WHITE_BOLD+"K"+Kolory.RESET;
         }
-        return "K";
+        return Kolory.RED_BOLD+"K"+Kolory.RESET;
     }
 
     public int roszada(String side) {
-        Wieza rook = (Wieza) Board.getPiece("rook" + side, this.getColor());
+        Wieza rook = (Wieza) Board.getPiece("wieza" + side, this.getColor());
         int originX = this.getX();
         int originY = this.getY();
 
         if (this.isFirstMove != true || rook.isFirstMove != true) {
-            System.out.println("Nie można wykonać roszady, jeśli król lub wieża wykonał/a ruch.");
+            System.out.println(Kolory.CYAN_UNDERLINED+"Nie można wykonać roszady, jeśli król lub wieża wykonał/a ruch."+Kolory.RESET);
             return -1;
         }
         if (Board.isPathClear(this.getX(), this.getY(), rook.getX(), rook.getY()) != true) {
-            System.out.println("Nie można wykonać roszady po linii szachu.");
+            System.out.println(Kolory.CYAN_UNDERLINED+"Nie można wykonać roszady po linii szachu."+Kolory.RESET);
             return -1;
         }
 
         if (this.getColor() == Color.BIALY) {
 
             if (side.equals("K")) {
-                // cant castle accross a line of check
+                // nie mozna wykonac roszady po linii szachu
                 if (this.move(5, 7, null) == 0 && this.move(6, 7, null) == 0) {
                     Board.setPiece(rook.getX(), rook.getY(), null);
                     Board.setPiece(5, 7, rook);
@@ -108,7 +108,7 @@ public class Krol extends Figura {
         int x = this.getX();
         int y = this.getY();
 
-        // bishop
+        // ruchy po przekatnych
         // top left
         if (this.testMove(x - 1, y - 1)) {
             return true;
@@ -126,7 +126,7 @@ public class Krol extends Figura {
             return true;
         }
 
-        // rook
+        // ruchy po osiach
         // left
         if (this.testMove(x - 1, y)) {
             return true;

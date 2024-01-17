@@ -6,11 +6,11 @@ public class Goniec extends Figura {
 
     @Override
     public boolean possibleMove(int x, int y) {
-        // cannot capture own piece
+        // nie mozna zbic wlasnej figury
         if (this.sameColor(Board.getPiece(x, y)) == true) {
             return false;
         }
-        // invalid move for bishop
+        // nieprawidlowy ruch dla gonca
         if (Math.abs(getX() - x) != Math.abs(getY() - y)) {
             return false;
         }
@@ -24,9 +24,9 @@ public class Goniec extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "B";
+            return Kolory.WHITE_BOLD+"B"+Kolory.RESET;
         }
-        return "B";
+        return Kolory.RED_BOLD+"B"+Kolory.RESET;
     }
 
     @Override
@@ -35,11 +35,11 @@ public class Goniec extends Figura {
         int originX = this.getX();
         int originY = this.getY();
 
-        // reset x and y to original position after each while loop
+        // reset x i y do oryginalnej pozycji po kazdej petli while
         int x = originX;
         int y = originY;
 
-        // top left
+        // gora-lewo
         while ((--x) >= 0 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -47,7 +47,7 @@ public class Goniec extends Figura {
         }
         x = originX;
         y = originY;
-        // top right
+        // gora-prawo
         while ((++x) <= 7 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -55,7 +55,7 @@ public class Goniec extends Figura {
         }
         x = originX;
         y = originY;
-        // bottom left
+        // dol-lewo
         while ((--x) >= 0 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;
@@ -63,7 +63,7 @@ public class Goniec extends Figura {
         }
         x = originX;
         y = originY;
-        // bottom right
+        // dol-prawo
         while ((++x) <= 7 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;

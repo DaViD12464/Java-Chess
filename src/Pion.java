@@ -12,37 +12,43 @@ public class Pion extends Figura {
 
         if (this.getColor() == Color.BIALY) {
 
-            // 2 spaces forward
-            if (this.isFirstMove == true && this.getY() - y == 2 && this.getX() - x == 0
+            // 2 pola do przodu
+            if (this.isFirstMove && this.getY() - y == 2 && this.getX() - x == 0
                     && Board.isPathClear(getX(), getY(), x, y) && Board.getPiece(x, y) == null) {
+                this.isFirstMove = false;
                 return true;
             }
-            // 1 space forward
+            // 1 pole do przodu
             if (this.getY() - y == 1 && this.getX() - x == 0 && Board.getPiece(x, y) == null) {
+                this.isFirstMove = false;
                 return true;
             }
 
-            // diagonal
+            // skos
             if (this.getY() - y == 1 && Math.abs(this.getX() - x) == 1 && Board.getPiece(x, y) != null
-                    && this.sameColor(Board.getPiece(x, y)) == false) {
+                    && !this.sameColor(Board.getPiece(x, y))) {
+                this.isFirstMove = false;
                 return true;
             }
         }
 
         if (this.getColor() == Color.CZARNY) {
-            // 2 spaces forward
-            if (this.isFirstMove == true && this.getY() - y == -2 && this.getX() - x == 0
+            // 2 pola do przodu
+            if (this.isFirstMove && this.getY() - y == -2 && this.getX() - x == 0
                     && Board.isPathClear(getX(), getY(), x, y) && Board.getPiece(x, y) == null) {
+                this.isFirstMove = false;
                 return true;
             }
-            // 1 space forward
+            // 1 pole do przodu
             if (this.getY() - y == -1 && this.getX() - x == 0 && Board.getPiece(x, y) == null) {
+                this.isFirstMove = false;
                 return true;
             }
 
-            // diagonal
+            // skos (bicie)
             if (this.getY() - y == -1 && Math.abs(this.getX() - x) == 1 && Board.getPiece(x, y) != null
-                    && this.sameColor(Board.getPiece(x, y)) == false) {
+                    && !this.sameColor(Board.getPiece(x, y))) {
+                this.isFirstMove = false;
                 return true;
             }
         }
@@ -52,9 +58,9 @@ public class Pion extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "o";
+            return Kolory.WHITE_BOLD+"o"+Kolory.RESET;
         }
-        return "o";
+        return Kolory.RED_BOLD+"o"+Kolory.RESET;
     }
 
     @Override

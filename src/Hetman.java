@@ -6,19 +6,19 @@ public class Hetman extends Figura {
 
     @Override
     public boolean possibleMove(int x, int y) {
-        // cannot capture own piece
+        // nie mozna zbic wlasnej figury
         if (this.sameColor(Board.getPiece(x, y)) == true) {
             return false;
         }
-        // obstruction
+        // zderzenie/blokada
         if (Board.isPathClear(getX(), getY(), x, y) != true) {
             return false;
         }
-        // bishop
-        if (Math.abs(getX() - x) == Math.abs(getY() - y)) { // bishop
+        // goniec
+        if (Math.abs(getX() - x) == Math.abs(getY() - y)) {
             return true;
         }
-        // rook
+        // wieza
         if (Math.abs(getX() - x) != 0 && Math.abs(getY() - y) == 0
                 || Math.abs(getX() - x) == 0 && Math.abs(getY() - y) != 0) {
             return true;
@@ -29,9 +29,9 @@ public class Hetman extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "Q";
+            return Kolory.WHITE_BOLD+"Q"+Kolory.RESET;
         }
-        return "Q";
+        return Kolory.RED_BOLD+"Q"+Kolory.RESET;
     }
 
     @Override
@@ -39,9 +39,8 @@ public class Hetman extends Figura {
 
         int x = this.getX();
         int y = this.getY();
-
-        // bishop
-        // top left
+                    //skosy
+        // gora-lewo
         while ((--x) >= 0 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -50,7 +49,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // top right
+        // gora-prawo
         while ((++x) <= 7 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -59,7 +58,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // bottom left
+        // dol-lewo
         while ((--x) >= 0 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;
@@ -68,7 +67,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // bottom right
+        // dol-prawo
         while ((++x) <= 7 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;
@@ -77,8 +76,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // rook
-        // left
+        // lewo
         while ((--x) >= 0 && y >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -87,7 +85,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // right
+        // prawo
         while ((++x) <= 7 && y >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -96,7 +94,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // down
+        // dol
         while (x >= 0 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;
@@ -105,7 +103,7 @@ public class Hetman extends Figura {
 
         x = this.getX();
         y = this.getY();
-        // up
+        // gora
         while (x <= 7 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;

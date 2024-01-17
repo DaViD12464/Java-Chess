@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public abstract class Figura {
 
     private final Color color;
@@ -68,6 +69,7 @@ public abstract class Figura {
         int originX = this.getX();
         int originY = this.getY();
 
+        //bicie
         if (this.getColor() == Color.BIALY) {
             Board.CZARNY.remove(other);
         } else {
@@ -95,18 +97,65 @@ public abstract class Figura {
             return -1;
         }
 
-        if (this instanceof Pion) {
+        // zamiana pionka na figure
+        if (this instanceof Pion && y == 0 || y == 7) {
             char file = this.getID().charAt(4);
-            if (this.getColor() == Color.BIALY && y == 0) {
-                Board.setPiece(x, y, null);
-                Board.BIALY.remove(this);
-                Hetman yasQueen = new Hetman(Color.BIALY, "queen" + file, x, y);
-                System.out.println("Pion promoted!");
-            } else if (this.getColor() == Color.CZARNY && y == 7) {
-                Board.setPiece(x, y, null);
-                Board.CZARNY.remove(this);
-                Hetman yasQueen = new Hetman(Color.CZARNY, "queen" + file, x, y);
-                System.out.println("Pion promoted!");
+            System.out.println(Kolory.CYAN_UNDERLINED+"Podaj na jaką figurę chcesz wymienić pionka:"+Kolory.RESET);
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            switch (input) {
+                case "krolowa":
+                    if (this.getColor() == Color.BIALY && y == 0) {
+                        Board.setPiece(x, y, null);
+                        Board.BIALY.remove(this);
+                        Hetman yasQueen = new Hetman(Color.BIALY, "krolowa" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do królowej!"+Kolory.RESET);
+                    } else if (this.getColor() == Color.CZARNY && y == 7) {
+                        Board.setPiece(x, y, null);
+                        Board.CZARNY.remove(this);
+                        Hetman yasQueen = new Hetman(Color.CZARNY, "krolowa" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do królowej!"+Kolory.RESET);
+                    }
+                    break;
+                case "wieza":
+                    if (this.getColor() == Color.BIALY && y == 0) {
+                        Board.setPiece(x, y, null);
+                        Board.BIALY.remove(this);
+                        Wieza yasRook = new Wieza(Color.BIALY, "wieza" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do wieży!"+Kolory.RESET);
+                    } else if (this.getColor() == Color.CZARNY && y == 7) {
+                        Board.setPiece(x, y, null);
+                        Board.CZARNY.remove(this);
+                        Wieza yasRook = new Wieza(Color.CZARNY, "wieza" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do wieży!"+Kolory.RESET);
+                    }
+                    break;
+                case "kon":
+                    if (this.getColor() == Color.BIALY && y == 0) {
+                        Board.setPiece(x, y, null);
+                        Board.BIALY.remove(this);
+                        Kon yasKnight = new Kon(Color.BIALY, "kon" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do konia!"+Kolory.RESET);
+                    } else if (this.getColor() == Color.CZARNY && y == 7) {
+                        Board.setPiece(x, y, null);
+                        Board.CZARNY.remove(this);
+                        Kon yasKnight = new Kon(Color.CZARNY, "kon" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do konia!"+Kolory.RESET);
+                    }
+                    break;
+                case "goniec":
+                    if (this.getColor() == Color.BIALY && y == 0) {
+                        Board.setPiece(x, y, null);
+                        Board.BIALY.remove(this);
+                        Kon yasBishop = new Kon(Color.BIALY, "goniec" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do gońca!"+Kolory.RESET);
+                    } else if (this.getColor() == Color.CZARNY && y == 7) {
+                        Board.setPiece(x, y, null);
+                        Board.CZARNY.remove(this);
+                        Kon yasBishop = new Kon(Color.CZARNY, "goniec" + file, x, y);
+                        System.out.println(Kolory.PURPLE_UNDERLINED+"Pionek został ulepszony do gońca!"+Kolory.RESET);
+                    }
+                    break;
             }
         }
 
@@ -122,9 +171,9 @@ public abstract class Figura {
         if (x >= 0 && y >= 0 && x <= 7 && y <= 7) {
             other = Board.getPiece(x, y);
             if (this.move(x, y, other) == 0) {
-                // captured piece set to original position
+                // zbity pionek ustawienie na domyslna pozycje
                 Board.setPiece(x, y, other);
-                // selected piece set to original position
+                // wybrany pionek ustawienie na domyslna pozycje
                 Board.setPiece(originX, originY, this);
                 isFirstMove = isFirst;
                 if (other != null) {

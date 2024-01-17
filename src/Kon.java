@@ -6,7 +6,7 @@ public class Kon extends Figura {
 
     @Override
     public boolean possibleMove(int x, int y) {
-        // cannot capture own piece
+        // nie mozna zbic wlasnej figury
         if (this.sameColor(Board.getPiece(x, y)) == true) {
             return false;
         }
@@ -22,9 +22,9 @@ public class Kon extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "N";
+            return Kolory.WHITE_BOLD+"N"+Kolory.RESET;
         }
-        return "N";
+        return Kolory.RED_BOLD+"N"+Kolory.RESET;
     }
 
     @Override
@@ -33,7 +33,7 @@ public class Kon extends Figura {
         int x = this.getX();
         int y = this.getY();
 
-        // left & up
+        // lewo&gora
         if (this.testMove(x - 2, y - 1)) {
             return true;
         }
@@ -41,7 +41,7 @@ public class Kon extends Figura {
             return true;
         }
 
-        // right & up
+        // prawo&gora
         if (this.testMove(x + 2, y - 1)) {
             return true;
         }
@@ -49,7 +49,7 @@ public class Kon extends Figura {
             return true;
         }
 
-        // left & down
+        // lewo&dol
         if (this.testMove(x - 2, y + 1)) {
             return true;
         }
@@ -57,7 +57,7 @@ public class Kon extends Figura {
             return true;
         }
 
-        // right & down
+        // prawo&dol
         if (this.testMove(x + 2, y + 1)) {
             return true;
         }

@@ -9,11 +9,11 @@ public class Wieza extends Figura {
 
     @Override
     public boolean possibleMove(int x, int y) {
-        // cannot capture own piece
+        // nie mozna zbic wlasnej figury
         if (this.sameColor(Board.getPiece(x, y)) == true) {
             return false;
         }
-        // invalid move for rook
+        // nieprawidlowy ruch  dla wiezy
         if (Math.abs(getX() - x) != 0 && Math.abs(getY() - y) != 0) {
             return false;
         }
@@ -27,9 +27,9 @@ public class Wieza extends Figura {
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
-            return "R";
+            return Kolory.WHITE_BOLD+"R"+Kolory.RESET;
         }
-        return "R";
+        return Kolory.RED_BOLD+"R"+Kolory.RESET;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class Wieza extends Figura {
         int x = this.getX();
         int y = this.getY();
 
-        // left
+        // lewa
         while ((--x) >= 0 && y >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -45,7 +45,7 @@ public class Wieza extends Figura {
         }
         x = this.getX();
         y = this.getY();
-        // right
+        // prawa
         while ((++x) <= 7 && y >= 0) {
             if (this.testMove(x, y)) {
                 return true;
@@ -53,7 +53,7 @@ public class Wieza extends Figura {
         }
         x = this.getX();
         y = this.getY();
-        // down
+        // dol
         while (x >= 0 && (++y) <= 7) {
             if (this.testMove(x, y)) {
                 return true;
@@ -61,7 +61,7 @@ public class Wieza extends Figura {
         }
         x = this.getX();
         y = this.getY();
-        // up
+        // gora
         while (x <= 7 && (--y) >= 0) {
             if (this.testMove(x, y)) {
                 return true;
