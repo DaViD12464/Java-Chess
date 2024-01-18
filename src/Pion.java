@@ -6,6 +6,8 @@ public class Pion extends Figura {
 
     boolean isFirstMove = true;
 
+    boolean enPassantPossible = false;
+
     @Override
     public boolean possibleMove(int x, int y) {
         // TODO en passant
@@ -30,6 +32,15 @@ public class Pion extends Figura {
                 this.isFirstMove = false;
                 return true;
             }
+
+
+            // sprawdź ąpasą
+            if (this.enPassantPossible && Math.abs(this.getX() - x) == 1 && this.getY() - y == 1) {
+                // zrób ąpasą
+                Board.setPiece(x, y - 1, null);
+                this.enPassantPossible = false;
+                return true;
+            }
         }
 
         if (this.getColor() == Color.CZARNY) {
@@ -37,6 +48,12 @@ public class Pion extends Figura {
             if (this.isFirstMove && this.getY() - y == -2 && this.getX() - x == 0
                     && Board.isPathClear(getX(), getY(), x, y) && Board.getPiece(x, y) == null) {
                 this.isFirstMove = false;
+
+                // sprawdź sąsiednie pola
+                if (y - 1 >= 0 && Board.getPiece(x, y - 1) instanceof Pion) {
+                    ((Pion) Board.getPiece(x, y - 1)).setEnPassantPossible(true);
+                }
+
                 return true;
             }
             // 1 pole do przodu
@@ -51,10 +68,21 @@ public class Pion extends Figura {
                 this.isFirstMove = false;
                 return true;
             }
+            // sprawdź ąpasą
+            if (this.enPassantPossible && Math.abs(this.getX() - x) == 1 && this.getY() - y == -1) {
+                // zrób ąpasą
+                Board.setPiece(x, y + 1, null);  // Set the captured pawn to null
+                this.enPassantPossible = false;
+                return true;
+            }
+
         }
         return false;
     }
 
+    public void setEnPassantPossible(boolean enPassantPossible) {
+        this.enPassantPossible = enPassantPossible;
+    }
     @Override
     public String toString() {
         if (this.getColor() == Color.BIALY) {
