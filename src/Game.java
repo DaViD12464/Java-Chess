@@ -51,6 +51,11 @@ public class Game {
 
                 String move = moveChoice.nextLine();
                 // zsrób ruch
+                if(move.equals("end"))
+                {
+                    zapis.close();
+                    System.exit(0);
+                }
                 if (Board.processMove(move, color) == 0) {
                     turns++;
                     zapis.println(move);
