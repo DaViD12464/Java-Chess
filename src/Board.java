@@ -1,10 +1,10 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 
 public class Board {
     public static ArrayList<Figura> CZARNY = new ArrayList<Figura>();
     public static ArrayList<Figura> BIALY = new ArrayList<Figura>();
+    public static final int SIZE = 8;
 
     static Figura board[][] = new Figura[8][8];
 
@@ -43,6 +43,7 @@ public class Board {
         System.out.println("Pionki są automatycznie zastępowane przez wybrana figure (wyświetli się prośba o podanie jednej z figur [kon,wieza,krolowa,goniec].");
         System.out.println("Nowe figury mają przypisywaną kolumnę od pionka. \nDla przykładu: \"krolowaH\"");
         System.out.println("Aby wykonać roszadę wpisz \"roszada\", następnie spację i \"Q\" lub \"K\" aby wybrać stronę w którą ma się wykonać roszada. \nDla przykładu: \"roszada Q\"");
+        System.out.println("Można poddać grę wcześniej wpisując \"poddanie\" jako ruch.");
         System.out.println("------------------------------------------------------------------"+Kolory.RESET);
 
         // CZARNY

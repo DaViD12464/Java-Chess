@@ -1,5 +1,3 @@
-
-import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
@@ -7,12 +5,7 @@ import java.io.FileNotFoundException;
 public class Game {
 
     public static String fileName = "historia.txt";
-//    public static File plik = new File(fileName);
     public static PrintWriter zapis;
-
-
-    public Game() throws FileNotFoundException {
-    }
 
     // TODO en passant
     public static void main(String[] args) throws FileNotFoundException{
@@ -50,29 +43,35 @@ public class Game {
                 System.out.printf("%s twoja tura! \n"+Kolory.RESET, color == Color.BIALY ? Kolory.WHITE_BOLD+"Bialy" : Kolory.RED_BOLD+"Czarny");
 
                 String move = moveChoice.nextLine();
-                // zsrób ruch
-                if(move.equals("end"))
+                // zrób ruch
+                if(move.equals("poddanie"))
                 {
+                    System.out.printf(Kolory.RED_UNDERLINED+"%s czy na pewno chcesz poddać rozgrywkę? T/N \n"+Kolory.RESET, color == Color.BIALY ? "Bialy" : "Czarny");
+                    if (moveChoice.next().equalsIgnoreCase("T"))
+                    {
+                        System.out.printf(Kolory.YELLOW_UNDERLINED+"Poddanie, %s wygrywa! \n", color == Color.BIALY ? "Czarny" : "Bialy");
                     zapis.close();
                     System.exit(0);
+                    }
+                    else continue;
                 }
-                if (Board.processMove(move, color) == 0) {
-                    turns++;
-                    zapis.println(move);
-                } else {
-                    System.out.println(Kolory.RED_UNDERLINED+"Niedozwolony ruch."+Kolory.RESET);
-                }
+                    if (Board.processMove(move, color) == 0) {
+                        turns++;
+                        zapis.println(move);
+                    } else {
+                        System.out.println(Kolory.RED_UNDERLINED+"Niedozwolony ruch."+Kolory.RESET);
+                    }
 
             }
             zapis.close();
             System.out.println(Kolory.CYAN_UNDERLINED+"Czy chcesz zagrać jeszcze raz T/N"+Kolory.RESET);
-            if (moveChoice.next().equals("T"))
+            if (moveChoice.next().equalsIgnoreCase("T"))
             {
                 zapis = new PrintWriter(fileName);
-                continue;
             }
             else
             {
+                zapis = new PrintWriter(fileName);
                 System.exit(0);
             }
         }

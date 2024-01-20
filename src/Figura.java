@@ -187,11 +187,6 @@ public abstract class Figura {
         }
         return false;
     }
-
-    public String nullToString() {
-        return "   ";
-    }
-
     public abstract String toString();
 
     public abstract boolean canMove();
