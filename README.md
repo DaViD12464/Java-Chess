@@ -13,4 +13,5 @@ Nowe figury mają przypisywaną kolumnę od pionka. Dla przykładu: "krolowaH".
 
 Aby wykonać roszadę wpisz "roszada", następnie spację i "Q" lub "K" aby wybrać stronę w którą ma się wykonać roszada. Dla przykładu: "roszada Q".
 Można poddać grę wcześniej wpisując "poddanie" jako ruch.
+
 ------------------------------------------------------------------
